@@ -4,18 +4,6 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World from Olivia Nwokoma! I am adding my first code change.'
-
-@app.route('/hello')
-def hello():  # put application's code here
-    return render_template('hello.html')
-
-@app.route('/about')
-def about():  # put application's code here
-    return render_template('about.html')
-
-@app.route('/restaurant-info')
 def restaurant_info():  # put application's code here
     return render_template('restaurant-info.html')
 

@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Restaurants</title>
-    <!-- This is what will appear on the tab itself. -->
+    <link href="/static/css/stylesheet1.css" rel="stylesheet">
 </head>
 <body>
+<div class = "font">
     <img class= logo src="https://logos-world.net/wp-content/uploads/2021/08/Arbys-Logo.png" width="500" height="281"
          alt="Arby's Company Logo">
     <h1>Restaurant Information</h1>
-    <p><button type="button" onclick="restaurant_add()">Add Restaurant</button></p> <!-- Button that links to new page to add new restaurant -->
-    <p><button type="button" onclick="restaurant_delete()">Delete Restaurant</button></p> <!-- Button that links to new page to delete restaurant -->
-
+    <p><form action="/restaurant-add">
+        <button type="Add Restaurant" class="navbutton">Add Restaurant</button>
+    </form></p>
+    <p><form action="/restaurant-delete">
+        <button type="Delete Restaurant" class="navbutton">Delete Restaurant</button>
+    </form></p>
 </body>
 </html>
