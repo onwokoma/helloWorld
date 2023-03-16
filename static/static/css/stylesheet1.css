@@ -1,0 +1,133 @@
+/*Creation of Arby's background color. This will be automatically applied to all pages linked*/
+body {
+    background-color: #f6f0e4;
+}
+
+/* Creation of class for Arby's style fomt */
+div.font{
+    font-family: Rockwell, serif
+}
+
+/* Creation of class for navigation related buttons on homepage of website */
+.navbutton{
+        background-color: #D71921;
+        border: none;
+        color: #f6f0e4;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-family: Rockwell;
+        text-transform: uppercase;
+        margin: 4px 2px;
+        cursor: pointer;
+        width: 50%;
+        border-radius: 8px;
+}
+
+/*Creation of hover affect and change in color on homepage buttons*/
+.navbutton:hover{
+    background-color: grey;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.35), 0 30px 60px 0 rgba(0,0,0,0.19); /*Format gathered from W3 schools*/
+}
+
+/*Creation of class for navbar and adjusting it to include the Arby's red background color*/
+.nav{
+    background-color: #D71921;
+    overflow: hidden;
+}
+
+/*Styling of the list of links included in the navbar*/
+/*Additionally adjusting the alignment of the list*/
+
+.nav ul{
+    list-style: none;
+    background-color: #D71921;
+    padding: 0;
+    margin: 0;
+    text-align: right; /*Can be changed to right/center depending on our preference*/
+}
+.nav li{
+    display: inline-block;
+}
+
+/*Styling of links within the navbar*/
+
+.nav a{
+    display: block;
+    width: 100px;
+    padding: 25px 20px;
+    text-decoration: none;
+    color: #f6f0e4;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Rockwell;
+}
+
+/*Creating a different background color for links in the navbar when they are active*/
+.nav a:hover{
+    background-color: grey;
+}
+
+/*Class to position logo within nav bar*/
+
+IMG.navlogo{
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 40px;
+}
+
+/*Creation of class for the centering of Arby's logo for sign-in and homepage*/
+
+IMG.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+/*Creation of class to center text and buttons*/
+
+div.center {
+  text-align: center;
+}
+
+/*Creation of class to style all text and password input boxes.*/
+
+input[type=text],input[type=password] {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border-radius: 8px;
+  font-family: Rockwell;
+}
+
+/*Creation of class to style all submit buttons.*/
+
+button[type=submit] {
+  width: 100%;
+  background-color: #D71921;
+  color: #f6f0e4;
+  font-family: Rockwell;
+  text-transform: uppercase;
+  padding: 20px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/*Creation of class to give submit buttons a hover effect when hovered upon. Also applies shadow to each button*/
+
+button[type=submit]:hover {
+  background-color: grey;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.35), 0 30px 60px 0 rgba(0,0,0,0.19); /*Format gathered from W3 schools*/
+}
+
+/*Spaces the distance between the containers*/
+.container {
+  padding: 15px;
+}
