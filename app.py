@@ -18,7 +18,17 @@ def favorite_course():  # put application's code here
 
     return render_template('favorite-course.html')
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    if request.method == 'POST':
+        print('First name entered: ' + request.form.get('first_name'))
+        print('Last name entered: ' + request.form.get('last_name'))
+        print('Email entered: ' + request.form.get('email'))
+
+        # used to check if the checkbox was checked. need this or else the field is not passed back.
+        if request.form.get('agree_check'):
+            print('Agree to be contacted entered: ' + request.form.get('agree_check'))
+
     return render_template('contact.html')
 
 if __name__ == '__main__':
