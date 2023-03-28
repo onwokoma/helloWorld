@@ -1,19 +1,25 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def restaurant_info():  # put application's code here
-    return render_template('restaurant-info.html')
+def hello_world():  # put application's code here
+    print('Subject entered: ' + request.args.get('subject_name'))
+    print('Course number entered: ' + request.args.get('course_number'))
 
-@app.route('/restaurant-add')
-def restaurant_add():  # put application's code here
-    return render_template('restaurant-add.html')
+    return render_template('favorite-course.html')
 
-@app.route('/restaurant-delete')
-def restaurant_delete():  # put application's code here
-    return render_template('restaurant-delete.html')
+@app.route('/hello')
+def hello():  # put application's code here
+    return render_template('hello.html')
+
+@app.route('/favorite-course')
+def favorite_course():  # put application's code here
+    print('Subject entered: ' + request.args.get('subject_name'))
+    print('Course number entered: ' + request.args.get('course_number'))
+
+    return render_template('favorite-course.html')
 
 if __name__ == '__main__':
     app.run()
