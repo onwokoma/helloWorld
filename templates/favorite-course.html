@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="templates/base.html" rel="stylesheet">
     <title>Your Favorite Course</title>
-    <p>You entered your favorite course as 'subject_name' 'course_number'</p>
 </head>
+    <p>You entered your favorite course as {{ request.args.get('subject_name') }} {{ request.args.get('course_number') }}.</p>
+
 <body>
 
 </body>
 </html>
+

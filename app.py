@@ -11,8 +11,8 @@ def hello_world():  # put application's code here
 def hello():  # put application's code here
     return render_template('hello.html')
 
-@app.route('/favorite-course')
-def favorite_course():  # put application's code here
+@app.route('/favorite-course', methods=['GET', 'POST'])
+def favorite_course():
     print('Subject entered: ' + request.args.get('subject_name'))
     print('Course number entered: ' + request.args.get('course_number'))
 
