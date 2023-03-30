@@ -15,12 +15,14 @@ def hello():  # put application's code here
 def favorite_course():
     print('Subject entered: ' + request.args.get('subject_name'))
     print('Course number entered: ' + request.args.get('course_number'))
+    fun_courses = ['BMGT301', 'BMGT302', 'BMGT402', 'BMGT403']
 
-    return render_template('favorite-course.html')
+    return render_template('favorite-course.html', courses=fun_courses)
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
+        print('Thank you!')
         print('First name entered: ' + request.form.get('first_name'))
         print('Last name entered: ' + request.form.get('last_name'))
         print('Email entered: ' + request.form.get('email'))

@@ -2,19 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <style>
-        body {
-            background-color: lightpink;
-            color: black;
-            font: jis90;
-        }
-
-        button {
-            <button type="button" class="btn btn-primary">Primary</button>
-        }
-    </style>
 </head>
 <body>
+    <h1>Favorite Course</h1>
+    <p>Hey! You entered your favorite course as {{ request.args.get('subject_name') }} {{ request.args.get('course_number') }}.</p>
+    <p>Maybe you would also find one of these courses interesting:</p>
 
+    <ul>
+        {% for each_course in courses %}
+            <li>{{ each_course }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
