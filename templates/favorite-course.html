@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="templates/base.html" rel="base">
-    <title>Your Favorite Course</title>
-</head>
+{% extends "base.html" %}
+{% block page_title %}Your Favorite Course{% endblock %}
+{% block page_head %}Hello!{% endblock %}
+{% block page_content %}
     <p>You entered your favorite course as {{ request.args.get('subject_name') }} {{ request.args.get('course_number') }}.</p>
+    <p>Maybe you would also find one of these courses interesting:</p>
 
-<body>
-
-</body>
-</html>
-
+    <ul>
+        {% for each_course in courses %}
+            <li>{{ each_course }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

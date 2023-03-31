@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="templates/base.html" rel="base">
-    <title>Contact Form</title>
-</head>
-<body>
-    <form class="row g-3" action={{ url_for('contact') }} method="post">
+{% extends "base.html" %}
+{% block page_title %}Contact Form{% endblock %}
+{% block page_head %}Contact Me{% endblock %}
+{% block page_content %}
+    {% if form_submitted %}
+        <h2>Thank you for completing the form!</h2>
+        <p>First Name: {{ request.form.get('first_name') }}</p>
+        <p>Last Name: {{ request.form.get('last_name') }}</p>
+        <p>Email: {{ request.form.get('email') }}</p>
+        <p>Favorite Color: {{ request.form.get('favcolor') }}</p>
+        <p>Agree To Be Contacted: {{ 'Yes' if request.form.get('agree_check') else 'No' }}</p>
+
+    {% else %}
+     <form class="row g-3" action={{ url_for('contact') }} method="post">
             <label for="first_name" class="form-label">First Name</label>
             <input type="text" class="form-control" id="first_name" name="first_name">
 
@@ -16,8 +21,8 @@
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" name="email">
 
-            <label for="exampleFormControlTextarea1" class="form-label">Enter 5 Fun Facts About Yourself:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="favcolor">Select Your Favorite Color: </label>
+            <input type="color" id="favcolor" name="favcolor">
 
             <input class="form-check-input" type="checkbox" id="agree_check" name="agree_check">
             <label class="form-check-label" for="agree_check">
@@ -25,7 +30,6 @@
             </label>
 
             <button type="submit" class="btn btn-primary">Submit Form</button>
-    </form>
+     {% endif %}
 
-</body>
-</html>
+{% endblock %}
