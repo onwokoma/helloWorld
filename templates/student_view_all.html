@@ -28,6 +28,7 @@
             <th>Last Name</th>
 			<th>First Name</th>
             <th>Major</th>
+            <th>Email</th>
             <th>Is Honors?</th>
             <th>Actions</th>
         </tr>
@@ -37,6 +38,7 @@
             <td><a href="{{ url_for('student_view', student_id=each_student['student_id']) }}">{{ each_student['last_name'] }}</a></td>
             <td>{{ each_student['first_name'] }}</td>
             <td>{{ each_major['major'] }}</td>
+            <td>{{ each_student['email'] }}</td>
             <td>{{ 'Yes' if each_student['is_honors'] == 1 else 'No' }}</td>
             <td>
                 <a href="{{ url_for('student_edit', student_id=each_student['student_id']) }}" class="btn btn-secondary" role="button">Edit</a>
