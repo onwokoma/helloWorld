@@ -5,7 +5,13 @@
     <title>Title</title>
     <link href="static/static/css/stylesheet1.css" rel="stylesheet">
 </head>
-<body>
+
+{% extends "base.html" %} {# allows this template to override the parent template (base.html) #}
+
+{%  block page_head %}Manage Restaurant Information{% endblock %}
+
+{% block page_content %}
+
 <div class = "font">
     <h1>Delete Restaurant</h1>
     <p><Enter Restaurant Number:</p>
@@ -19,5 +25,5 @@
             <!-- want to display a message if the restaurant was successfully deleted. -->
             <!-- Also want to delete the chosen restaurant from the database once the Submit button is clicked. -->
 </div>
-</body>
+{% endblock %}
 </html>

@@ -5,17 +5,37 @@
     <title>Restaurants</title>
     <link href="static/static/css/stylesheet1.css" rel="stylesheet">
 </head>
-<body>
+
+{% extends "base.html" %} {# allows this template to override the parent template (base.html) #}
+
+{%  block page_head %}Manage Restaurant Information{% endblock %}
+
+{% block page_content %}
+
 <div class = "font">
     <div class="center">
-        <h1>Restaurant Information</h1>
-        <p><form action="/restaurant-add">
-            <button type="Add Restaurant" class="navbutton">Add Restaurant</button>
-        </form></p>
-        <p><form action="/restaurant-delete">
-            <button type="Delete Restaurant" class="navbutton">Delete Restaurant</button>
-        </form></p>
+        <table>
+        <tr>
+            <th>Restaurant Number</th>
+			<th>Restaurant City</th>
+        </tr>
+
+
+        {% for each_restaurant in restaurants %}
+        <tr>
+            <td><a href="{{ url_for('student_view', student_id=each_student['student_id']) }}">{{ each_student['last_name'] }}</a></td>
+            <td>{{ each_restaurant['restaurant_number'] }}</td>
+            <td>{{ each_restaurant['restaurant_city'] }}</td>
+        </tr>
+        {% endfor %}
+
+
+        </table>
+        <form action="/restaurant-add">
+           <button type="submit" class="navbutton">Add Restaurant</button>
+           <!--button that takes you to 'add restaurant' html page. -->
+       </form>
     </div>
 </div>
-</body>
+{% endblock %}
 </html>

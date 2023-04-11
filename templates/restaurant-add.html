@@ -5,7 +5,14 @@
     <title>Add Restaurant</title>
     <link href="static/static/css/stylesheet1.css" rel="stylesheet">
 </head>
-<body>
+{% extends "base.html" %} {# allows this template to override the parent template (base.html) #}
+
+{%  block page_head %}Manage Restaurant Information{% endblock %}
+
+{% block page_content %}
+
+
+
 <div class = "font">
     <h1>Add New Restaurant</h1>
     <p>Enter Restaurant Number:</p>
@@ -16,5 +23,9 @@
         <!-- want to display a message if the restaurant was successfully added. -->
         <!-- How to store the data entry in the database? -->
 </div>
-</body>
+{% endblock %}
 </html>
+
+
+
+

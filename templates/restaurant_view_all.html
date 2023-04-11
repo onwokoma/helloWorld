@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    View All Restaurants
+{% endblock %}
+
+{% block page_head %}
+    View All Restaurants
+{% endblock %}
+
+{% block page_content %}
+
+    <div class="row">
+    <div class="col">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert {{ 'alert-success' if category == 'success' else 'alert-danger' }}" role="alert">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+    <table class="table table-striped">
+        <tr>
+            <th>Restaurant Number</th>
+			<th>Restaurant City</th>
+        </tr>
+
+        {% for each_restaurant in restaurants %}
+        <tr>
+            <td><a href="{{ url_for('restaurant_view', restaurant_id=each_restaurant['restaurant_id']) }}">{{ each_restaurant['restaurant_number'] }}</a></td>
+            <td>{{ each_restaurant['restaurant_number'] }}</td>
+            <td>{{ each_restaurant['restaurant_city'] }}</td>
+            <td>
+                <a href="{{ url_for('restaurant_edit', restaurant_id=each_restaurant['restaurant_id']) }}" class="btn btn-secondary" role="button">Edit</a>
+                &nbsp;
+                <a href="{{ url_for('restaurant_delete', restaurant_id=each_restaurant['restaurant_id']) }}" class="btn btn-secondary" role="button">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            Total Number of Restaurants: {{ restaurants|length }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-center">
+            <a href="{{ url_for('restaurant_create') }}" class="btn btn-primary" role="button">Add New Restaurant</a>
+        </div>
+    </div>
+
+{% endblock %}
+
+

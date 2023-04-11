@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    {% if action and action == 'create' %}
+        Add New Restaurant
+    {% elif action and action == 'update'  %}
+        Update Restaurant
+    {% else %}
+        View Restaurant
+    {% endif %}
+
+{% endblock %}
+
+{% block page_head %}
+    {% if action and action == 'create' %}
+        Add New Restaurant
+    {% elif action and action == 'update'  %}
+        Update Restaurant
+    {% else %}
+        View Restaurant
+    {% endif %}
+{% endblock %}
+
+{% block page_content %}
+
+<form class="row g-3"
+      action="{{ url_for('restaurant_edit', restaurant_id=restaurant['restaurant_id']) if restaurant else url_for('restaurant_create') }}" method="post">
+  <div class="col-md-4">
+    <label for="restaurant_number" class="form-label"><strong>Restaurant Number</strong></label>
+    {% if action and action in ['create', 'update'] %}
+    <input type="text" class="form-control" id="restaurant_number" name="restaurant_number" value="{{ restaurant['restaurant_number'] if restaurant else '' }}" required>
+    {% else %}
+        <br>{{ restaurant['restaurant_number'] }}
+    {% endif %}
+  </div>
+  <div class="col-md-4">
+    <label for="restaurant_city" class="form-label"><strong>Restaurant City</strong></label>
+    {% if action and action in ['create', 'update'] %}
+    <input type="text" class="form-control" id="restaurant_city" name="restaurant_city" value="{{ restaurant['restaurant_city'] if restaurant else '' }}" required>
+    {% else %}
+        <br>{{ restaurant['restaurant_city'] }}
+    {% endif %}
+  </div>
+
+  <div class="col-12 text-center">
+    {% if action and action in ['create', 'update'] %}
+    <button class="btn btn-primary" type="submit">{{ 'Add' if action=='create' else 'Update' }} Restaurant</button>
+    {% endif %}
+
+    <a href="{{ url_for('restaurant_view_all') }}" class="btn btn-secondary" role="button">
+        {% if action and action in ['create', 'update'] %}
+        Cancel
+        {% else %}
+        Return
+        {% endif %}
+    </a>
+  </div>
+</form>
+{% endblock %}
+
+
